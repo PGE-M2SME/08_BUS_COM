@@ -1,0 +1,36 @@
+|Spi
+SCK => dat_reg[0].CLK
+SCK => dat_reg[1].CLK
+SCK => dat_reg[2].CLK
+SCK => dat_reg[3].CLK
+SCK => dat_reg[4].CLK
+SCK => dat_reg[5].CLK
+SCK => dat_reg[6].CLK
+SCK => dat_reg[7].CLK
+DATA => dat_reg[0].DATAIN
+CS => LED[0]$latch.LATCH_ENABLE
+CS => LED[1]$latch.LATCH_ENABLE
+CS => LED[2]$latch.LATCH_ENABLE
+CS => LED[3]$latch.LATCH_ENABLE
+CS => LED[4]$latch.LATCH_ENABLE
+CS => LED[5]$latch.LATCH_ENABLE
+CS => LED[6]$latch.LATCH_ENABLE
+CS => LED[7]$latch.LATCH_ENABLE
+CS => dat_reg[0].ENA
+CS => dat_reg[1].ENA
+CS => dat_reg[2].ENA
+CS => dat_reg[3].ENA
+CS => dat_reg[4].ENA
+CS => dat_reg[5].ENA
+CS => dat_reg[6].ENA
+CS => dat_reg[7].ENA
+LED[0] <> LED[0]
+LED[1] <> LED[1]
+LED[2] <> LED[2]
+LED[3] <> LED[3]
+LED[4] <> LED[4]
+LED[5] <> LED[5]
+LED[6] <> LED[6]
+LED[7] <> LED[7]
+
+
