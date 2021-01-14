@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Jan 14 23:23:25 2021
+Quartus II 32-bit Version : 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition
+Revision Name : Slave_I2C
+Top-level Entity Name : Slave_I2C
+Family : Cyclone IV E
+Device : EP4CE22F17C6
+Timing Models : Final
+Total logic elements : 128 / 22,320 ( < 1 % )
+    Total combinational functions : 116 / 22,320 ( < 1 % )
+    Dedicated logic registers : 66 / 22,320 ( < 1 % )
+Total registers : 66
+Total pins : 22 / 154 ( 14 % )
+Total virtual pins : 0
+Total memory bits : 0 / 608,256 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

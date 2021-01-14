@@ -1,0 +1,106 @@
+|Slave_I2C
+scl <> scl
+sda <> sda
+clk => debounce:SCL_debounce.clk
+clk => continue_reg.CLK
+clk => data_from_master_reg[0].CLK
+clk => data_from_master_reg[1].CLK
+clk => data_from_master_reg[2].CLK
+clk => data_from_master_reg[3].CLK
+clk => data_from_master_reg[4].CLK
+clk => data_from_master_reg[5].CLK
+clk => data_from_master_reg[6].CLK
+clk => data_from_master_reg[7].CLK
+clk => data_reg[0].CLK
+clk => data_reg[1].CLK
+clk => data_reg[2].CLK
+clk => data_reg[3].CLK
+clk => data_reg[4].CLK
+clk => data_reg[5].CLK
+clk => data_reg[6].CLK
+clk => data_to_master_reg[0].CLK
+clk => data_to_master_reg[1].CLK
+clk => data_to_master_reg[2].CLK
+clk => data_to_master_reg[3].CLK
+clk => data_to_master_reg[4].CLK
+clk => data_to_master_reg[5].CLK
+clk => data_to_master_reg[6].CLK
+clk => data_to_master_reg[7].CLK
+clk => cmd_reg.CLK
+clk => addr_reg[0].CLK
+clk => addr_reg[1].CLK
+clk => addr_reg[2].CLK
+clk => addr_reg[3].CLK
+clk => addr_reg[4].CLK
+clk => addr_reg[5].CLK
+clk => addr_reg[6].CLK
+clk => bits_processed_reg[0].CLK
+clk => bits_processed_reg[1].CLK
+clk => bits_processed_reg[2].CLK
+clk => bits_processed_reg[3].CLK
+clk => read_req_reg.CLK
+clk => data_valid_reg.CLK
+clk => sda_wen_reg.CLK
+clk => sda_o_reg.CLK
+clk => stop_reg.CLK
+clk => start_reg.CLK
+clk => scl_falling_reg.CLK
+clk => scl_rising_reg.CLK
+clk => sda_prev_reg.CLK
+clk => scl_prev_reg.CLK
+clk => sda_reg.CLK
+clk => scl_reg.CLK
+clk => debounce:SDA_debounce.clk
+clk => state_reg~9.DATAIN
+rst => state_reg.OUTPUTSELECT
+rst => state_reg.OUTPUTSELECT
+rst => state_reg.OUTPUTSELECT
+rst => state_reg.OUTPUTSELECT
+rst => state_reg.OUTPUTSELECT
+rst => state_reg.OUTPUTSELECT
+rst => state_reg.OUTPUTSELECT
+rst => state_reg.OUTPUTSELECT
+data_to_master[0] => data_to_master_reg.DATAB
+data_to_master[0] => data_to_master_reg.DATAA
+data_to_master[1] => data_to_master_reg.DATAB
+data_to_master[1] => data_to_master_reg.DATAA
+data_to_master[2] => data_to_master_reg.DATAB
+data_to_master[2] => data_to_master_reg.DATAA
+data_to_master[3] => data_to_master_reg.DATAB
+data_to_master[3] => data_to_master_reg.DATAA
+data_to_master[4] => data_to_master_reg.DATAB
+data_to_master[4] => data_to_master_reg.DATAA
+data_to_master[5] => data_to_master_reg.DATAB
+data_to_master[5] => data_to_master_reg.DATAA
+data_to_master[6] => data_to_master_reg.DATAB
+data_to_master[6] => data_to_master_reg.DATAA
+data_to_master[7] => data_to_master_reg.DATAB
+data_to_master[7] => data_to_master_reg.DATAA
+
+
+|Slave_I2C|debounce:SCL_debounce
+signal_in => process_0.IN1
+signal_in => signal_in_reg.DATAB
+signal_in => process_0.IN1
+signal_in => out_reg.DATAB
+signal_in => process_0.IN1
+clk => out_reg.CLK
+clk => counter[0].CLK
+clk => counter[1].CLK
+clk => state_reg.CLK
+clk => signal_in_reg.CLK
+
+
+|Slave_I2C|debounce:SDA_debounce
+signal_in => process_0.IN1
+signal_in => signal_in_reg.DATAB
+signal_in => process_0.IN1
+signal_in => out_reg.DATAB
+signal_in => process_0.IN1
+clk => out_reg.CLK
+clk => counter[0].CLK
+clk => counter[1].CLK
+clk => state_reg.CLK
+clk => signal_in_reg.CLK
+
+

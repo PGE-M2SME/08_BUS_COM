@@ -1,0 +1,11 @@
+
+State Machine - |Slave_I2C|state_reg
+Name state_reg.read_stop state_reg.read_ack_got_rising state_reg.read_ack_start state_reg.read state_reg.write state_reg.answer_ack_start state_reg.get_address_and_cmd state_reg.idle 
+state_reg.idle 0 0 0 0 0 0 0 0 
+state_reg.get_address_and_cmd 0 0 0 0 0 0 1 1 
+state_reg.answer_ack_start 0 0 0 0 0 1 0 1 
+state_reg.write 0 0 0 0 1 0 0 1 
+state_reg.read 0 0 0 1 0 0 0 1 
+state_reg.read_ack_start 0 0 1 0 0 0 0 1 
+state_reg.read_ack_got_rising 0 1 0 0 0 0 0 1 
+state_reg.read_stop 1 0 0 0 0 0 0 1 

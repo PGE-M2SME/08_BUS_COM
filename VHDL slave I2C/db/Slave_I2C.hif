@@ -1,0 +1,102 @@
+Quartus II 32-bit
+Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
+15
+1490
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+Slave_I2C
+# storage
+db|Slave_I2C.(0).cnf
+db|Slave_I2C.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+slave_i2c.vhd
+e27481b5582aa91b6436ea9252e29f4
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+SLAVE_ADDR
+0000000
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# include_file {
+components|debounce.vhd
+72c1110827912ff68f28fa0b5249195
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+debounce
+# storage
+db|Slave_I2C.(1).cnf
+db|Slave_I2C.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+components|debounce.vhd
+72c1110827912ff68f28fa0b5249195
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+wait_cycles
+4
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+debounce:SCL_debounce
+debounce:SDA_debounce
+}
+# macro_sequence
+
+# end
+# complete
+
