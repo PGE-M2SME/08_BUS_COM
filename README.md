@@ -3,11 +3,11 @@ Repository bus de communication
 
 /!\ La documentation est suception de changer au cours du travail de recherche /!\
 
-### Entrées / Sorties
+### EntrÃ©es / Sorties
 
-![Schema Entrées/Sorties](Images/Schema_IO.png)
+![Schema EntrÃ©es/Sorties](/Images/Schema_IO.png)
 
-Entrées | PIN  | Description
+EntrÃ©es | PIN  | Description
 --------|------|-------------
 Clock   |      | SCLK(SPI) CLK(I2C)
 Data In |      | MOSI(SPI) SDA(I2C) Rx(UART)
