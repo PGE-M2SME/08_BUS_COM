@@ -5,7 +5,7 @@ Repository bus de communication
 
 ### Entrées / Sorties
 
-![Schema Entrées/Sorties](main/Images/Schema_IO.png)
+![Schema Entrées/Sorties](./Images/Schema_IO.png)
 
 Entrées | PIN  | Description
 --------|------|-------------
