@@ -1,7 +1,7 @@
 # 08_BUS_COM
 Repository bus de communication
 
-**/!\ La documentation est suception de changer au cours du travail de recherche /!\**
+/!\ __La documentation est suception de changer au cours du travail de recherche__ /!\
 
 La communication avec le bus de communication se décompose en 2 partie :
 - Lecture du bus
@@ -40,7 +40,7 @@ Octet | Nom  | Description
 1|Nb_Octets|Nombre d’octets de la trame
 2|ID_Sys|Système dont la commande est sollicité
 3|ID_Cmd|Commande sollicité
-4|Protocole|Protocole utilisé (UART, I2C ou SPI)
+4|Bus_type|Type de bus utilisé :</br> 0x1 : SPI </br> 0x2 : I2C </br> 0x3 : UART
 5|Adresse|Adresse de l'esclave
 6|Taille_mot|Taille du mot seul à transmettre en octet (hors spécification de taille ou fréquence)
 7|Operateur|Nature de l'opérateur du facteur de bauds. _Exemple : 0 pour multiplication ; 1 pour division_
