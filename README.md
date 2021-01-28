@@ -36,6 +36,7 @@ Pour réaliser cette partie de façon optimisée, il faut indiquer quelles infor
 Voici la trame attendue pour l'écriture sur le bus :
 
 **La trame est succeptible d'être modifiée, ce n'est pas la trame finale.**
+
 Octet | Nom  | Description
 -----|------|-------------
 1|Nb_Octets|Nombre d’octets de la trame
