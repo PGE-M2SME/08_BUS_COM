@@ -35,8 +35,6 @@ Bus type|   |Type de bus :</br> 01 : SPI </br> 10 : I2C </br> 11 : UART
 Pour réaliser cette partie de façon optimisée, il faut indiquer quelles informations seront attendues. Tous les groupes du porjet attendent en réception des trames par paquet de **8 bits** (1 octet).
 Voici la trame attendue pour l'écriture sur le bus :
 
-**La trame est succeptible d'être modifiée, ce n'est pas la trame finale.**
-
 Octet | Nom  | Description
 -----|------|-------------
 1|Nb_Octets|Nombre d’octets de la trame
