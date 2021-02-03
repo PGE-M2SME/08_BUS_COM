@@ -3,7 +3,8 @@ Repository bus de communication
 
 /!\ __La documentation est suception de changer au cours du travail de recherche__ /!\
 
-**Tous les code on été testé sur Lattice Diamond software version (64-bit) 3.11.3.469**
+**Tous les code on été testé sur Lattice Diamond software version (64-bit) 3.11.3.469
+Carte de développement : LFXP2-5E Brevia 2**
 
 La communication avec le bus de communication se décompose en 2 partie :
 - Lecture du bus
@@ -41,7 +42,7 @@ Code test_pin :
 Entrée|Description
 ------|----------
 Clock_50M|Horloge principale du FPGA
-pins|Vecteure logique de taille 4 (correspondant aux entrées/sortie physique du FPGA
+pins|Vecteur logique de taille 4 (correspondant aux entrées/sortie physique du FPGA)
 leds|Vecteur logique de taille 6 </br> 4 pour observer les pin détectés des pins </br> 2 pour la configuration obtenue (SPI, I2C, UART)
 
 ## Ecriture sur le bus de communication
