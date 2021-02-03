@@ -3,6 +3,8 @@ Repository bus de communication
 
 /!\ __La documentation est suception de changer au cours du travail de recherche__ /!\
 
+**Tous les code on été testé sur Lattice Diamond software version (64-bit) 3.11.3.469**
+
 La communication avec le bus de communication se décompose en 2 partie :
 - Lecture du bus
 - Ecriture sur le bus
@@ -30,6 +32,17 @@ Sorties|PIN|Description
 -------|---|-----------
 Data bus|   |Information du bus sur 8 bits
 Bus type|   |Type de bus :</br> 01 : SPI </br> 10 : I2C </br> 11 : UART
+
+### Code de détection de pins
+Un code permettant de connaître les pins câblés a été écrit. Comme expliqué précédemment, ces derniers étant **labélisés** si une tention est détectée, c'est qu'il sont reliés à quelque chose (autre que la masse). Cette détection n'est pas faite à un instant *t* car un signal peut varier au cours du temps (pour un câble mal branché par exemple). La méthode retenue est celle utilisant un **registre de comptage pour chaque pin**. Le programme lit la valeur des pins (0 ou 1) pendant **500 ms toutes les 500 ms** et **l'ajoute à un registre propre à chaque pin**. Si au bout de 500 ms la valeur d'un registre est différente de 0, c'est que le pin lié à ce registre a été câblé.
+En fonction de la combinaison de registre différent de 0, il est possible de **connaître la configuration branchée**.
+
+Code test_pin :
+Entrée|Description
+------|----------
+Clock_50M|Horloge principale du FPGA
+pins|Vecteure logique de taille 4 (correspondant aux entrées/sortie physique du FPGA
+leds|Vecteur logique de taille 6 </br> 4 pour observer les pin détectés des pins </br> 2 pour la configuration obtenue (SPI, I2C, UART)
 
 ## Ecriture sur le bus de communication
 Pour réaliser cette partie de façon optimisée, il faut indiquer quelles informations seront attendues. Tous les groupes du porjet attendent en réception des trames par paquet de **8 bits** (1 octet).
