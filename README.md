@@ -14,8 +14,8 @@ La communication avec le bus de communication se décompose en 2 partie :
 ### Entrées / Sorties
 Pour faire la distinction entre les protocoles, les pins seront au nombre de **4** et **labélisés** :
 - Clock
-- Data In
-- Data Out
+- Data IN
+- Data OUT
 - SS (Slave Select)
 
 En fonction de ce qui est câblé, il est aisément possible de connaître le protocole utilisé. La démarche utilisée en VHDL est celle de ***pull down*** pour pouvoir détecter une tension lors du câblge.
@@ -38,12 +38,22 @@ Bus type|   |Type de bus :</br> 01 : SPI </br> 10 : I2C </br> 11 : UART
 Un code permettant de connaître les pins câblés a été écrit. Comme expliqué précédemment, ces derniers étant **labélisés** si une tention est détectée, c'est qu'il sont reliés à quelque chose (autre que la masse). Cette détection n'est pas faite à un instant *t* car un signal peut varier au cours du temps (pour un câble mal branché par exemple). La méthode retenue est celle utilisant un **registre de comptage pour chaque pin**. Le programme lit la valeur des pins (0 ou 1) pendant **500 ms toutes les 500 ms** et **l'ajoute à un registre propre à chaque pin**. Si au bout de 500 ms la valeur d'un registre est différente de 0, c'est que le pin lié à ce registre a été câblé.
 En fonction de la combinaison de registre différent de 0, il est possible de **connaître la configuration branchée**.
 
-Code test_pin :
-Entrée|Description
+Code test_pin.vhd :
+#### Entrées/sorties du code
+Ports|Description
 ------|----------
-Clock_50M|Horloge principale du FPGA
-pins|Vecteur logique de taille 4 (correspondant aux entrées/sortie physique du FPGA)
-leds|Vecteur logique de taille 6 </br> 4 pour observer les pin détectés des pins </br> 2 pour la configuration obtenue (SPI, I2C, UART)
+Clock_50M (IN)|Signal logique simple. Horloge principale du FPGA
+pins (IN)|Vecteur logique de 4 bits (correspondant aux entrées/sortie physique du FPGA)
+leds (OUT)|Vecteur logique de 6 bits </br> 4 pour observer les pin détectés des pins </br> 2 pour la configuration obtenue (SPI, I2C, UART)
+
+#### Signaux internes
+Nom|Description
+---|-----------
+Clock_2M|Signal logique simple. Sortie d'un component pour obtenir une horloge de 2 MHz
+regc|Vecteur logique de 32 bits. Registre de compatage de front montant de l'horloge de 2 MHZ
+reg1, reg2, reg3, reg4|Vecteur de 32 bits. Registre de comptage des valeurs des pins. Respectivement Clock, Data IN, Data OUT, SS.
+pin_layout|Vecteur logique de 4 bits. Signal permettant de manipuler les leds pour visualiser les pins détectés
+config|Vecteur logique de 2 bits. Signal récupérant la configuration utilisée (en fonction des pins détectés)
 
 ## Ecriture sur le bus de communication
 Pour réaliser cette partie de façon optimisée, il faut indiquer quelles informations seront attendues. Tous les groupes du porjet attendent en réception des trames par paquet de **8 bits** (1 octet).
