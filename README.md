@@ -44,7 +44,7 @@ Ports|Description
 ------|----------
 Clock_50M (IN)|Signal logique simple. Horloge principale du FPGA
 pins (IN)|Vecteur logique de 4 bits (correspondant aux entrées/sortie physique du FPGA)
-leds (OUT)|Vecteur logique de 6 bits </br> 4 pour observer les pin détectés des pins </br> 2 pour la configuration obtenue (SPI, I2C, UART)
+leds (OUT)|Vecteur logique de 6 bits </br> 4 pour observer les pin détectés </br> 2 pour la configuration obtenue (SPI, I2C, UART)
 
 #### Signaux internes
 Nom|Description
