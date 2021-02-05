@@ -43,18 +43,18 @@ Code test_pin.vhd :
 #### Entrées/sorties du code
 Ports|Description
 ------|----------
-Clock_50M (IN)|Signal logique simple. Horloge principale du FPGA
-pins (IN)|Vecteur logique de 4 bits (correspondant aux entrées/sortie physique du FPGA)
+Clock_50M (IN)|Signal logique simple </br> Horloge principale du FPGA
+pins (IN)|Vecteur logique de 4 bits </br> Correspondant aux entrées/sortie physique du FPGA
 leds (OUT)|Vecteur logique de 6 bits </br> 4 pour observer les pin détectés </br> 2 pour la configuration obtenue (SPI, I2C, UART)
 
 #### Signaux internes
 Nom|Description
 ---|-----------
-Clock_2M|Signal logique simple. Sortie d'un component pour obtenir une horloge de 2 MHz
-regc|Vecteur logique de 32 bits. Registre de compatage de front montant de l'horloge de 2 MHZ
-reg1, reg2, reg3, reg4|Vecteur de 32 bits. Registre de comptage des valeurs des pins. Respectivement Clock, Data IN, Data OUT, SS.
-pin_layout|Vecteur logique de 4 bits. Signal permettant de manipuler les leds pour visualiser les pins détectés
-config|Vecteur logique de 2 bits. Signal récupérant la configuration utilisée (en fonction des pins détectés)
+Clock_2M|Signal logique simple </br> Sortie d'un component pour obtenir une horloge de 2 MHz
+regc|Vecteur logique de 32 bits </br> Registre de compatage de front montant de l'horloge de 2 MHZ
+reg1, reg2, reg3, reg4|Vecteur de 32 bits </br> Registre de comptage des valeurs des pins. Respectivement Clock, Data IN, Data OUT, SS.
+pin_layout|Vecteur logique de 4 bits </br> Signal permettant de manipuler les leds pour visualiser les pins détectés
+config|Vecteur logique de 2 bits </br> Signal récupérant la configuration utilisée (en fonction des pins détectés)
 
 ## Ecriture sur le bus de communication
 Pour réaliser cette partie de façon optimisée, il faut indiquer quelles informations seront attendues. Tous les groupes du porjet attendent en réception des trames par paquet de **8 bits** (1 octet).
@@ -68,6 +68,6 @@ Octet | Nom  | Description
 4|Bus_type|Type de bus utilisé :</br> 0x1 : SPI </br> 0x2 : I2C </br> 0x3 : UART
 5|Adresse|Adresse de l'esclave (pour I2C)
 6|Taille_mot|Taille du mot seul à transmettre en octet (hors spécification de taille ou fréquence)
-7|Operateur|Nature de l'opérateur du facteur de bauds. _Exemple : 0 pour multiplication ; 1 pour division_
-8|Facteur_baud|Facteur (multiple de 9 600) du baud rate de transmission. **Dans le cas où Operateur = 0, la valeur de Facteur_baud multiplie 9 600. Dans le cas où Operateur = 1, la valeur de Facteur_baud divise 9 600.** </br>_Exemple : </br> Operateur = 1; Facteur_baud = 0x20 (32) ==> Bauds = 300 </br> Operateur = 0; Facteur_baud = 0x68 (104) ==> Bauds = 998 400_
+7|Operateur|Nature de l'opérateur du facteur de bauds. </br> 0 pour multiplication </br> 1 pour division
+8|Facteur_baud|Facteur (multiple de 9 600) du baud rate de transmission. </br> **Dans le cas où Operateur = 0, la valeur de Facteur_baud multiplie 9 600 </br> Dans le cas où Operateur = 1, la valeur de Facteur_baud divise 9 600.** </br>_Exemple : </br> Operateur = 1; Facteur_baud = 0x20 (32) ==> Bauds = 300 </br> Operateur = 0; Facteur_baud = 0x68 (104) ==> Bauds = 998 400_
 9 ou plus|Mot|Mot à transmettre (dépend de Taille_mot)
